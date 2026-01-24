@@ -2,7 +2,7 @@ package org.prog.session2;
 
 public class Homework2 {
 
-    public static void main(String[] args) {
+    public static void main() {
 
         int[] myArrayToSort = {4, 1, 8, 5, 8, 0, 12, 9};
         boolean condition = true;
