@@ -23,6 +23,7 @@ public class Main {
         Car aliceCar = new Car();
         Car bobsCar = new Car();
         Car otherCar = myFirstCar;
+        myFirstCar.owner = "Daria";
 
         int amountToPay = 10;
 
