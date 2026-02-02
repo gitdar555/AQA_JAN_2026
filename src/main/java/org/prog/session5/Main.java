@@ -1,5 +1,7 @@
 package org.prog.session5;
 
+import org.prog.session6.Truck;
+
 public class Main {
 
     /**
@@ -33,6 +35,23 @@ public class Main {
 
         System.out.println("After payment: " + amountToPay);
 
+        // TODO 4: массив грузовиков
+        Truck[] trucks = new Truck[2];
+
+        trucks[0] = new Truck();
+        trucks[0].setTruckInfo("Volvo FH", "Alex", "AB1234CD");
+
+        trucks[1] = new Truck();
+        trucks[1].setTruckInfo("MAN TGX", "Maria", "BC5678EF");
+
+        // TODO 3: используем String чтобы хранить и печатать
+        for (Truck t : trucks) {
+            String info = t.getTruckInfo(); // сохранили строку
+            System.out.println(info);       // вывели строку
+        }
+    }
+
+
 //        carService.paintCar(aliceCar, "yellow");
 //        carService.paintCar(bobsCar, "black");
 //
@@ -53,5 +72,4 @@ public class Main {
 //        otherCar.color = "black";
 //
 //        myFirstCar.goTo("Kyiv", 80);
-    }
 }
