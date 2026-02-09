@@ -1,5 +1,6 @@
 package org.prog.session8;
 
+
 //TODO: Create IPhone interface
 //TODO: Each phone must be able to: void call(String someone);
 //TODO: Each phone must be able to: void unlockScreen();
@@ -10,22 +11,25 @@ package org.prog.session8;
 
 public class Main {
 
-    /**
-     * ###################################
-     * ###################################
-     * ###################################
-     * #######[o1@owner]##################
-     * ###################################
-     * ##[o2@owner]#######################
-     * ###################################
-     * ###################################
-     * ===================================
-     * #################10################
-     *
-     * @param args
-     */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {                // Точка входа
+
+        IPhone p1 = new Android("Samsung S23", "Black");    // Создаём Android, но тип переменной = IPhone (полиморфизм)
+        IPhone p2 = new Apple("iPhone 15", "White");        // Создаём Apple, тоже как IPhone
+
+        p1.unlockScreen();                                  // Вызываем метод интерфейса у Android
+        p1.call("Mom");                                     // Android звонит “Mom”
+
+        p2.unlockScreen();                                  // Вызываем метод интерфейса у Apple
+        p2.call("Dad");                                     // Apple звонит “Dad”
+
+        Android a1 = new Android("Samsung S23", "Black");    // Первый Android (отдельный объект)
+        Android a2 = new Android("Samsung S23", "Black");    // Второй Android (отдельный объект)
+
+        System.out.println(a1.equals(a2));                   // true, потому что model и color одинаковые
+    }                                                       // Конец main
+}                                                           // Конец класса
+   /* public static void main(String[] args) {
         Car car = new Car();
         car.goTo("Odessa");
         System.out.println("===============================");
@@ -87,3 +91,4 @@ public class Main {
 //        car.goTo("somewhere");
     }
 }
+*/
