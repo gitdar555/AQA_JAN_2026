@@ -1,4 +1,59 @@
+
 package org.prog.collections.session11;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListDemo {
+
+    public static void main(String[] args) {
+
+        List<Phone> androids = new ArrayList<>();
+        List<Phone> apples = new ArrayList<>();
+
+        // Android (10, один розовый)
+        androids.add(new Phone("Samsung", "Black"));
+        androids.add(new Phone("Samsung", "White"));
+        androids.add(new Phone("Xiaomi", "Blue"));
+        androids.add(new Phone("Xiaomi", "Green"));
+        androids.add(new Phone("Pixel", "Gray"));
+        androids.add(new Phone("Pixel", "White"));
+        androids.add(new Phone("OnePlus", "Black"));
+        androids.add(new Phone("OnePlus", "Blue"));
+        androids.add(new Phone("Motorola", "Silver"));
+        androids.add(new Phone("Samsung", "Pink")); // розовый
+
+        // Apple (10, один золотой)
+        apples.add(new Phone("iPhone", "Black"));
+        apples.add(new Phone("iPhone", "White"));
+        apples.add(new Phone("iPhone", "Blue"));
+        apples.add(new Phone("iPhone", "Red"));
+        apples.add(new Phone("iPhone", "Purple"));
+        apples.add(new Phone("iPhone", "Green"));
+        apples.add(new Phone("iPhone", "Silver"));
+        apples.add(new Phone("iPhone", "Gold")); // золотой
+        apples.add(new Phone("iPhone", "Gray"));
+        apples.add(new Phone("iPhone", "Blue Pro"));
+
+        // Проверки
+        boolean pinkAndroidExists = androids.stream()
+                .anyMatch(p -> p.getColor().equals("Pink"));
+
+        boolean goldAndroidExists = androids.stream()
+                .anyMatch(p -> p.getColor().equals("Gold"));
+
+        boolean goldAppleExists = apples.stream()
+                .anyMatch(p -> p.getColor().equals("Gold"));
+
+        boolean pinkAppleExists = apples.stream()
+                .anyMatch(p -> p.getColor().equals("Pink"));
+
+        System.out.println("Pink Android exists: " + pinkAndroidExists);
+        System.out.println("Gold Android exists: " + goldAndroidExists);
+        System.out.println("Gold Apple exists: " + goldAppleExists);
+        System.out.println("Pink Apple exists: " + pinkAppleExists);
+    }
+}/*package org.prog.collections.session11;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -90,4 +145,4 @@ public class ListDemo {
 //
 //        System.out.println(owners.get(100));
     }
-}
+}*/
