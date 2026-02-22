@@ -1,8 +1,42 @@
 package org.prog.collections.session12;
 
 import java.util.*;
+import java.util.*;
+// Подключаем коллекции
 
-//TODO: Write Map that will allow multiple different people to own several unique phones each
+public class Main {
+
+    public static void main(String[] args) {
+
+        Map<Owner, Set<String>> phoneOwners = new HashMap<>();
+        // Создаём Map:
+        // Ключ → Owner
+        // Значение → Set телефонов
+        // Set используется, чтобы телефоны были уникальные
+
+        Owner owner1 = new Owner("Anna");
+        // Создаём объект владельца Anna
+
+        phoneOwners.put(owner1, new HashSet<>());
+        // Добавляем Anna в Map
+        // Пока без телефонов (пустой список)
+
+        phoneOwners.get(owner1).add("iPhone 15");
+        // Берём телефоны Anna и добавляем iPhone
+
+        phoneOwners.get(owner1).add("Samsung S23");
+        // Добавляем второй телефон Anna
+
+        System.out.println(phoneOwners.get(new Owner("Anna")));
+        // Создаём НОВЫЙ объект Owner("Anna")
+        // HashMap вызывает:
+        // 1) hashCode()
+        // 2) equals()
+        // И находит нужного владельца
+    }
+}
+
+/*//TODO: Write Map that will allow multiple different people to own several unique phones each
 //TODO: * - I should be able to find phones for new Owner("Name_Of_Owner");
 //TODO: Map<...> phoneOwners = new HashMap<>();
 //TODO: phoneOwners.put(owner1, ...);
@@ -113,4 +147,4 @@ public class Main {
         System.out.println(map1);
         System.out.println(map2);
     }
-}
+}   */
