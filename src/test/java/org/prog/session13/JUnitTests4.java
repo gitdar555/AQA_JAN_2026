@@ -1,4 +1,36 @@
 package org.prog.session13;
+// тот же пакет, что и у Apple
+
+import org.junit.jupiter.api.Assertions;
+// импорт для проверок (assert)
+
+import org.junit.jupiter.api.Test;
+// импорт аннотации @Test
+
+public class JUnitTests4 {
+// имя класса ДОЛЖНО совпадать с именем файла
+
+    @Test
+        // говорим что это тест
+
+    void modelNumber_is_3_or_above() {
+        // имя тестового метода
+
+        Apple apple = new Apple();
+        // создаём объект Apple
+
+        int model = apple.getModelNumber();
+        // получаем номер модели
+
+        Assertions.assertTrue(model >= 1 && model <= 5);
+        // проверяем что число от 1 до 5
+
+        Assertions.assertTrue(model >= 3);
+        // проверяем что число >= 3
+    }
+}
+
+/*package org.prog.session13;
 
 import org.junit.jupiter.api.*;
 
@@ -39,3 +71,4 @@ public class JUnitTests4 {
         System.out.println("Close reg form by pressing ESC");
     }
 }
+*/
