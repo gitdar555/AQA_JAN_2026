@@ -1,10 +1,10 @@
 CREATE TABLE Persons (
-                         PersonID int UNIQUE AUTO_INCREMENT NOT NULL,
-                         FirstName varchar(255) NOT NULL,
-                         LastName varchar(255) NOT NULL,
-                         Gender varchar(80) NOT NULL,
-                         Title varchar(255) NOT NULL,
-                         Nat varchar(255) NOT NULL
+    PersonID INT AUTO_INCREMENT PRIMARY KEY,
+    FirstName VARCHAR(255) NOT NULL,
+    LastName VARCHAR(255) NOT NULL,
+    Gender VARCHAR(80) NOT NULL,
+    Title VARCHAR(255) NOT NULL,
+    Nat VARCHAR(255) NOT NULL
 );
 
 INSERT INTO Persons (FirstName, LastName, Gender, Title, Nat) VALUES ('TestFirstName', 'TestLastName', 'TestGender', 'TestTitle', 'TestNat');

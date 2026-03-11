@@ -6,6 +6,17 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode
 public class NameDto {
+    private String title;
+    private String first;
+    private String last;
+}/*package org.prog.session16.dto;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@EqualsAndHashCode
+public class NameDto {
     private String first;
     private String last;
     private String title;
@@ -34,3 +45,4 @@ public class NameDto {
 //        this.title = title;
 //    }
 }
+*/
