@@ -1,4 +1,76 @@
-package org.prog.session18.steps;
+package org.prog.session18.steps; // пакет
+
+import io.cucumber.java.en.And; // аннотация And
+import org.prog.session18.model.Phone; // класс Phone
+import org.testng.Assert; // для assert
+
+import java.sql.Connection; // соединение с БД
+import java.sql.PreparedStatement; // SQL запрос
+import java.sql.ResultSet; // результат запроса
+import java.util.List; // список
+
+public class DBSteps { // класс шагов для БД
+
+    public static Connection connection;
+    // connection приходит из CucumberRunner
+
+    @And("check phones in db")
+    // шаг из feature
+
+    public void checkPhonesInDb() throws Exception {
+
+        List<Phone> phones = GoogleSteps.phones;
+        // берём телефоны найденные на сайте
+
+        for (Phone phone : phones) {
+            // проверяем каждый телефон
+
+            PreparedStatement select =
+                    connection.prepareStatement(
+                            "select price from phones where model=?"
+                    );
+            // SQL запрос найти цену по модели
+
+            select.setString(1, phone.getModel());
+            // в ? подставляем модель
+
+            ResultSet rs = select.executeQuery();
+            // выполняем запрос
+
+            if (rs.next()) {
+                // если модель есть в БД
+
+                int dbPrice = rs.getInt("price");
+                // берём цену из БД
+
+                Assert.assertEquals(
+                        dbPrice,
+                        phone.getPrice()
+                );
+                // проверяем что цена совпадает
+
+            } else {
+                // если модели нет в БД
+
+                PreparedStatement insert =
+                        connection.prepareStatement(
+                                "insert into phones(model, price) values(?, ?)"
+                        );
+                // SQL вставка
+
+                insert.setString(1, phone.getModel());
+                // подставить модель
+
+                insert.setInt(2, phone.getPrice());
+                // подставить цену
+
+                insert.executeUpdate();
+                // выполнить insert
+            }
+        }
+    }
+}
+/*package org.prog.session18.steps;
 
 import io.cucumber.java.en.Given;
 import org.prog.session16.dto.PersonDto;
@@ -50,3 +122,4 @@ public class DBSteps {
         }
     }
 }
+*/

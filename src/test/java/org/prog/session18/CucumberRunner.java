@@ -20,7 +20,7 @@ import java.sql.SQLException;
 //TODO: if not in DB -> write to DB phone model and its price
 
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/allo.feature",
         glue = "org.prog.session18.steps"
 )
 public class CucumberRunner extends AbstractTestNGCucumberTests {
